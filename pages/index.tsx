@@ -1,6 +1,7 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 
+// Configuração das fontes locais
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -17,6 +18,31 @@ export default function Home() {
     <div
       className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
     >
+      {/* Navbar simples vermelho */}
+      <nav className="w-full bg-red-600 text-white p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="text-lg font-bold">Navbar</div>
+          <ul className="flex space-x-4">
+            <li>
+              <a href="#" className="hover:underline">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      {/* Conteúdo principal */}
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
@@ -63,6 +89,8 @@ export default function Home() {
           </a>
         </div>
       </main>
+
+      {/* Rodapé */}
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
