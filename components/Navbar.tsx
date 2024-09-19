@@ -4,13 +4,13 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="w-full bg-gradient-to-r from-[#f4505a] to-[#a84f9f] p-4 shadow-md">
+    <nav className="w-full bg-gradient-to-r p-4 border-b border-white border-opacity-20 fixed top-0 z-10 left-0 right-0"> 
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" legacyBehavior>
           <a>
             <Image
-              src="/images/terra-branca.webp" // Substitua pelo caminho correto do logo
+              src="/images/terra-branca.webp"
               alt="Terra dos Imóveis"
               width={150}
               height={50}
