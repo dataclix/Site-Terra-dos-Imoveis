@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Logo e marca */}
         <div className="flex flex-col items-start">
           <Image
-            src="/logo-footer.svg" // Substitua pelo caminho correto do logo
+            src="/images/terra-logo.webp" // Substitua pelo caminho correto do logo
             alt="Terra dos Imóveis"
             width={150}
             height={50}

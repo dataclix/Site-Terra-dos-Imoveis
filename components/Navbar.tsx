@@ -10,7 +10,7 @@ const Navbar = () => {
         <Link href="/" legacyBehavior>
           <a>
             <Image
-              src="/logo.svg" // Substitua pelo caminho correto do logo
+              src="/images/terra-branca.webp" // Substitua pelo caminho correto do logo
               alt="Terra dos Imóveis"
               width={150}
               height={50}
