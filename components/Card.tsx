@@ -4,12 +4,12 @@ import {
     HiOutlineTruck,
 } from 'react-icons/hi';
 import {
-    FiHeart,
+
     FiCopy,
     FiFacebook,
     FiSend,
     FiShare, // Novo ícone para compartilhar
-} from 'react-icons/fi'; 
+} from 'react-icons/fi';
 import { BiBath } from 'react-icons/bi'; // Novo ícone para banheiro
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -26,6 +26,7 @@ import {
 import { urlSite } from './globals/variavels';
 
 import { RiRulerLine } from 'react-icons/ri';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 export interface ImovelResumo {
     id: string;
@@ -209,9 +210,8 @@ const Card: React.FC<ImovelResumo> = ({
                             <button onClick={toggleMenu} className="p-2 rounded-full text-[#52174c]">
                                 <FiShare className="mr-1" size={20} /> {/* Novo ícone de compartilhar */}
                             </button>
-
-                            <button onClick={handleToggleFavorite} className={`p-2 rounded-full ${isFavorite ? 'text-red-600' : 'text-[#52174c]'}`}>
-                                <FiHeart size={20} />
+                            <button onClick={handleToggleFavorite} className={`p-2 rounded-full ${isFavorite ? 'text-[#f4505a]' : 'text-[#52174c]'}`}>
+                                {isFavorite ? <AiFillHeart size={20} /> : <AiOutlineHeart size={20} />}
                             </button>
                         </div>
                     </div>
