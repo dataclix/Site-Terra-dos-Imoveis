@@ -148,12 +148,7 @@ const Imovel: React.FC<ImovelProps> = ({ imovel }) => {
     window.open(shareUrl, '_blank');
   };
 
-  const getFirstAndLastName = (fullName: string) => {
-    const names = fullName.trim().split(' ');
-    const firstName = names[0];
-    const lastName = names[names.length - 1];
-    return `${firstName} ${lastName}`;
-  };
+
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(urlSite + imovel.idInterno).then(() => {
@@ -372,7 +367,20 @@ const Imovel: React.FC<ImovelProps> = ({ imovel }) => {
                     {formatarPreco(imovel.valor)}
                   </p>
                   <div className="mb-4">
-                  
+                    <div className="flex items-center">
+                      <div
+                        className="circular-image mr-3"
+                        style={{
+                          backgroundImage: `url(${imovel.captador.creci && imovel.captador.creci !== '' ? (imovel.captador.foto || '/images/longatti.webp') : '/images/junior.webp'})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'top',
+                          width: '50px',
+                          height: '50px',
+                          borderRadius: '50%',
+                        }}
+                      ></div>
+                     
+                    </div>
                   </div>
                   <button
                     onClick={handleWhatsapp}
