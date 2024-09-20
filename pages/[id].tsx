@@ -185,30 +185,31 @@ const Imovel: React.FC<ImovelProps> = ({ imovel }) => {
                 type: 'image/webp',
               },
             ],
-            site_name: 'Longatti Imóveis',
+            site_name: 'Terra Dos Imoveis',
           }}
         />
       )}
 
       <Navbar2 />
-      <div className="sm:mx-[5%] xl:mx-[10%] 3xl:mx-[17%] px-4 py-8 mt-32">
+      <div className="grid grid-cols-4 gap-2 mt-36">
+        {imovel.fotos.slice(0, 4).map((foto, index) => (
+          <div key={index} className="relative w-full h-auto"> {/* Aumentei a altura das fotos */}
+            <img
+              src={foto}
+              alt={`Foto ${index + 1} do imóvel`}
+              onClick={() => openLightbox(index)}
+              className="object-cover w-full h-full cursor-pointer"
+            />
+          </div>
+        ))}
+
+      </div>
+      <div className="sm:mx-[5%] xl:mx-[10%] 3xl:mx-[17%] px-4 ">
         {imovel ? (
           <>
             <div className="bg-white rounded-lg overflow-hidden mb-4">
               {/* Grid com fotos lado a lado, tamanho ajustado */}
-              <div className="grid grid-cols-4 gap-2">
-                {imovel.fotos.slice(0, 4).map((foto, index) => (
-                  <div key={index} className="relative w-full h-56"> {/* Aumentei a altura das fotos */}
-                    <img
-                      src={foto}
-                      alt={`Foto ${index + 1} do imóvel`}
-                      onClick={() => openLightbox(index)}
-                      className="object-cover w-full h-full cursor-pointer"
-                    />
-                  </div>
-                ))}
-              
-              </div>
+
               <div className="flex flex-col md:flex-row items-center justify-between mb-4 mt-10">
                 <div className="mb-4 md:mb-0">
                   <h1 className="text-2xl font-semibold text-gray-800">
@@ -269,15 +270,12 @@ const Imovel: React.FC<ImovelProps> = ({ imovel }) => {
                 )}
               </div>
 
-              {/* Fim das alterações */}
 
-              {/* Botão para abrir todas as fotos, centralizado e com largura apropriada */}
-            
+
             </div>
 
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="md:col-span-2 h-auto">
+            <div className="grid grid-cols-1  gap-6">
+              <div className=" h-auto">
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-2xl font-semibold text-gray-800">
@@ -348,8 +346,9 @@ const Imovel: React.FC<ImovelProps> = ({ imovel }) => {
                 </div>
               </div>
 
+
               <div className="md:col-span-1 md:sticky md:top-20 sm:h-80">
-                <div className="bg-[#E4E9EB] p-6 rounded-lg shadow-lg">
+                <div className="bg-white p-6 rounded-lg shadow-lg">
                   <div className="font-semibold text-gray-700 items-center flex justify-between">
                     <span className='text-lg'>{imovel ? `${imovel.tipo.nome} ` : ''}</span>
                     <span className='text-md'>Cód: {imovel.idInterno}</span>
@@ -373,29 +372,7 @@ const Imovel: React.FC<ImovelProps> = ({ imovel }) => {
                     {formatarPreco(imovel.valor)}
                   </p>
                   <div className="mb-4">
-                    <div className="flex items-center">
-                      <div
-                        className="circular-image mr-3"
-                        style={{
-                          backgroundImage: `url(${imovel.captador.creci && imovel.captador.creci !== '' ? (imovel.captador.foto || '/images/longatti.webp') : '/images/junior.webp'})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'top',
-                          width: '50px',
-                          height: '50px',
-                          borderRadius: '50%',
-                        }}
-                      ></div>
-                      <div>
-                        <p className="text-gray-800 text-lg font-semibold">
-                          {imovel.captador.creci && imovel.captador.creci !== '' ? (getFirstAndLastName(imovel.captador.nome) || 'Longatti') : 'Junior Longatti'}
-                        </p>
-                        {imovel.captador.creci && (
-                          <p className="text-gray-600 text-md">
-                            CRECI: {imovel.captador.creci}
-                          </p>
-                        )}
-                      </div>
-                    </div>
+                  
                   </div>
                   <button
                     onClick={handleWhatsapp}
