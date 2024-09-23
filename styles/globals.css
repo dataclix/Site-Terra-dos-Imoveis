@@ -2,26 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Estilizando os botões do Swiper */
+#custom .swiper-button-prev,
+#custom .swiper-button-next {
+  width: 36px;
+  height: 36px !important;
+  border-radius: 100%;
+  background-color: rgba(200, 200, 200, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Estilizando a seta dentro do botão */
+#custom .swiper-button-prev::after,
+#custom .swiper-button-next::after {
+  font-size: 16px !important;
+  color: #001e29 !important;
+  font-weight: bold !important;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.swiper-button-prev,
+.swiper-button-next {
+  width: 36px;
+  height: 36px !important;
+  border-radius: 100%;
+  background-color: #001e29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Estilizando a seta dentro do botão */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px !important;
+  color: rgba(200, 200, 200, 0.8) !important;
+  font-weight: bold !important;
+}
+
+/* Estilizando a paginação do Swiper */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(220, 220, 220, 0.6) !important; /* 50% de transparência */
+  opacity: 1 !important; /* Opacidade total com !important */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important;
 }
